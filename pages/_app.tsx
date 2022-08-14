@@ -1,8 +1,13 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import { withGlobalServices } from '../lib/hoc/withGlobalServices';
+import { withGlobalContext } from '../lib/hoc/withGlobalContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+const AppWithServices = withGlobalServices(MyApp);
+const AppWithGlobalContext = withGlobalContext(AppWithServices);
+
+export default AppWithGlobalContext;
