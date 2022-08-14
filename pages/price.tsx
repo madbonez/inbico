@@ -428,7 +428,9 @@ export const Price = () => {
 
     function groupHeaderHandler(groupName: string) {
         setActiveGroupName(groupName);
-        setVisible(!visible);
+        if (!activeGroupName || groupName === activeGroupName) {
+            setVisible(!visible);
+        }
     }
 
     function isGroupOpened(groupName: string): boolean {
