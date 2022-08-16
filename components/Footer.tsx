@@ -5,7 +5,13 @@ export const Footer = () => {
     return (
         <footer className="w-full relative h-[1250px] lg:h-[1000px] flex">
             {/*background*/}
-            <div className="h-[450px] bg-[url('/footer.png')] bg-cover bg-center absolute inset-x-0">
+            <div className="h-[450px] absolute inset-x-0 absolute">
+                <Image
+                    src="/footer.png"
+                    layout="fill"
+                    objectFit="cover"
+                    quality={100}
+                />
                 <div className="bg-black absolute inset-0 opacity-60"></div>
             </div>
             <div className="bg-nepal h-[800px] lg:h-[550px] absolute inset-x-0 top-[450px]"></div>

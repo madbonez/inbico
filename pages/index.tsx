@@ -5,11 +5,6 @@ import { Banks } from '../components/Banks';
 import { Feedback } from '../components/Feedback';
 import { Showcase } from '../components/Showcase';
 import { ArticlesPreview } from '../components/ArticlesPreview';
-import { Copyrights } from '../components/Copyrights';
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
-import { Navigation } from '../components/Navigation';
-import { Hero } from '../components/Hero';
 import { BasePageTemplate } from '../components/templates/BasePageTemplate';
 
 const Home: NextPage = () => {
