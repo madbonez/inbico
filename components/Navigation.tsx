@@ -60,17 +60,23 @@ export const Navigation = () => {
                     <span className="text-lg ml-5 text-gray-500 font-bold">ИНБИКО</span>
 
                     <div className="flex ml-auto items-center lg:space-x-2 text-gray-500 cursor-pointer h-full text-xs">
-                        <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">
-                            <Link href="/">ГЛАВНАЯ</Link>
-                        </span>
+                        <Link href="/">
+                            <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">
+                                ГЛАВНАЯ
+                            </span>
+                        </Link>
                         <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">УСЛУГИ</span>
-                        <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">
-                            <Link href="/price">ЦЕНЫ</Link>
-                        </span>
+                        <Link href="/price">
+                            <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">
+                                ЦЕНЫ
+                            </span>
+                        </Link>
                         <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">ИНФОРМАЦИЯ</span>
-                        <span className="hidden lg:inline-block pl-4 pr-5 hover:text-orange-300">
-                            <Link href="/about">О КОМПАНИИ</Link>
-                        </span>
+                        <Link href="/about">
+                            <span className="hidden lg:inline-block p-4 pl-4 pr-5 hover:text-orange-300">
+                                О КОМПАНИИ
+                            </span>
+                        </Link>
 
                         <div
                             onClick={openMobileMenu}
@@ -86,22 +92,33 @@ export const Navigation = () => {
                 </div>
                 {
                     isMenuOpened && (
-                        <div className={`bg-grayBg w-full h-[200px] divide-y divide-gray-300 flex flex-col text-teal-900 font-medium text-xs`}>
-                            <a className="pl-5 p-2 hover:bg-gray-200 mt-auto">
-                                <Link href="/">ГЛАВНАЯ</Link>
-                            </a>
-                            <a className="pl-5 p-2 hover:bg-gray-200">
-                                <Link href="/">УСЛУГИ</Link>
-                            </a>
-                            <a className="pl-5 p-2 hover:bg-gray-200">
-                                <Link href="/price">ЦЕНЫ</Link>
-                            </a>
-                            <a className="pl-5 p-2 hover:bg-gray-200">
-                                <Link href="/">ИНФОРМАЦИЯ</Link>
-                            </a>
-                            <a className="pl-5 p-2 hover:bg-gray-200 mb-auto">
-                                <Link href="/about">О КОМПАНИИ</Link>
-                            </a>
+                        <div
+                            className={`bg-grayBg w-full h-[200px] divide-y divide-gray-300 flex flex-col text-teal-900 font-medium text-xs`}>
+                            <Link href="/">
+                                <a className="pl-5 p-2 hover:bg-gray-200 mt-auto">
+                                    ГЛАВНАЯ
+                                </a>
+                            </Link>
+                            <Link href="/">
+                                <a className="pl-5 p-2 hover:bg-gray-200">
+                                    УСЛУГИ
+                                </a>
+                            </Link>
+                            <Link href="/price">
+                                <a className="pl-5 p-2 hover:bg-gray-200">
+                                    ЦЕНЫ
+                                </a>
+                            </Link>
+                            <Link href="/">
+                                <a className="pl-5 p-2 hover:bg-gray-200">
+                                    ИНФОРМАЦИЯ
+                                </a>
+                            </Link>
+                            <Link href="/about">
+                                <a className="pl-5 p-2 hover:bg-gray-200 mb-auto">
+                                    О КОМПАНИИ
+                                </a>
+                            </Link>
                         </div>
                     )
                 }
