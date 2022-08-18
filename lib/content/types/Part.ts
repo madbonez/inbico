@@ -1,4 +1,4 @@
-import { REFERENCE_SECTION_SLUG, SERVICES_SECTION_SLUG } from '../consts/content';
+import { REFERENCE_SECTION_SLUG, SERVICES_SECTION_SLUG } from '../../consts/content';
 
 export interface Part {
     slug: string;

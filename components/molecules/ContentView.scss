@@ -1,0 +1,27 @@
+.content-view {
+    @apply text-teal-900;
+
+    & h1 {
+        @apply text-3xl font-bold mb-6 mt-6;
+    }
+
+    & h2 {
+        @apply text-xl font-bold mb-4 mt-4;
+    }
+
+    & h3 {
+        @apply text-lg font-medium mb-2 mt-2;
+    }
+
+    & b {
+        @apply font-bold;
+    }
+
+    & p {
+        @apply mt-5 mb-5;
+    }
+
+    & ul {
+        @apply list-disc mb-7 ml-12;
+    }
+}

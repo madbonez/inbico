@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../components/molecules/ContentView.scss'
 import type { AppProps } from 'next/app'
 import { withGlobalServices } from '../lib/hoc/withGlobalServices';
 import { withGlobalContext } from '../lib/hoc/withGlobalContext';
