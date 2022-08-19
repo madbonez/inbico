@@ -3,11 +3,11 @@ import { BasePageTemplate } from '../components/templates/BasePageTemplate';
 import path from 'path';
 import { ABOUT_PAGE_LOCATION } from '../lib/consts/content';
 import { parseYaml } from '../lib/content/utils/yaml';
-import { AboutPage } from '../lib/content/types/AboutPage';
+import { AboutPageContent } from '../lib/content/types/AboutPageContent';
 import { ContentView } from '../components/molecules/ContentView';
 import { getHtmlFromMd } from '../lib/content/utils/markdown';
 
-const About: NextPage<{ content: AboutPage }> = (props) => {
+const About: NextPage<{ content: AboutPageContent }> = (props) => {
 
     return (
         <BasePageTemplate>
@@ -56,7 +56,7 @@ const About: NextPage<{ content: AboutPage }> = (props) => {
 
 export async function getStaticProps() {
     const aboutContentPath = path.resolve(process.cwd(), ABOUT_PAGE_LOCATION);
-    const content = parseYaml<AboutPage>(aboutContentPath)
+    const content = parseYaml<AboutPageContent>(aboutContentPath)
 
     content.block1 = getHtmlFromMd(content.block1);
     content.block2 = getHtmlFromMd(content.block2);

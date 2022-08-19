@@ -1,4 +1,4 @@
-export interface AboutPage {
+export interface AboutPageContent {
     slug: string;
     block1: string;
     requisites: {
