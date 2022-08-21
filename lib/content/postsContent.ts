@@ -17,7 +17,6 @@ const allPosts: Post[] = readdirSync(postsPath)
             content = fm(fs.readFileSync(path.resolve(postsPath, fileName), 'utf-8'));
             result = {...content.attributes}
             result.body = getHtmlFromMd(content.body);
-            result.preview = getHtmlFromMd(content.attributes.preview);
         } catch (e) {
             console.error(e);
         }

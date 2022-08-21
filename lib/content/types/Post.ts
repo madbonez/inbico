@@ -4,6 +4,7 @@ export interface Post {
     title: string;
     image: string;
     preview: string;
-    section: string;
+    publishMonth: string;
+    publishDate: string;
     body: string;
 }

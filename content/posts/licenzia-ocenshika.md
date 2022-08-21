@@ -1,6 +1,10 @@
 ---
 slug: licenzia-ocenshika
 partSlug: zakon-ob-ocenke
+title: Заголовок статьи 2
+publishMonth: ДЕК
+publishDate: 12
+image: /articles/img.png
 preview: |-
     # При оценке автомобиля учитывается множество различных факторов,
     ## влияющих на его цену, проводится экспертиза технического состояния транспортного средства,
