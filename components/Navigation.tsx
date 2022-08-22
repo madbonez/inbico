@@ -66,7 +66,7 @@ export const Navigation = () => {
                             </span>
                         </Link>
                         <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">УСЛУГИ</span>
-                        <Link href="/price">
+                        <Link href={'/price'}>
                             <span className="hidden lg:inline-block border-r-2 p-4 hover:text-orange-300">
                                 ЦЕНЫ
                             </span>

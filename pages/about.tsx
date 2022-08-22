@@ -1,16 +1,18 @@
 import { NextPage } from 'next';
-import { BasePageTemplate } from '../components/templates/BasePageTemplate';
+import { BasePageTemplate } from '../components/BasePageTemplate';
 import path from 'path';
 import { ABOUT_PAGE_LOCATION } from '../lib/consts/content';
 import { parseYaml } from '../lib/content/utils/yaml';
 import { AboutPageContent } from '../lib/content/types/AboutPageContent';
 import { ContentView } from '../components/molecules/ContentView';
 import { getHtmlFromMd } from '../lib/content/utils/markdown';
+import { getConfig } from '../lib/content/getConfig';
+import { SiteConfig } from '../lib/content/types/SiteConfig';
 
-const About: NextPage<{ content: AboutPageContent }> = (props) => {
+const About: NextPage<{ content: AboutPageContent, config: SiteConfig }> = (props) => {
 
     return (
-        <BasePageTemplate>
+        <BasePageTemplate config={props.config}>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="lg:w-container justify-center items-center mb-3 mt-0 lg:mt-16 p-6">
                     <ContentView html={props.content.block1}/>
@@ -64,7 +66,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-            content
+            content,
+            config: getConfig()
         },
     }
 }

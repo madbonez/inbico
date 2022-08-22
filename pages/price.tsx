@@ -1,4 +1,4 @@
-import { BasePageTemplate } from '../components/templates/BasePageTemplate';
+import { BasePageTemplate } from '../components/BasePageTemplate';
 import { Fragment, useState } from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 import { NextPage } from 'next';
@@ -8,8 +8,10 @@ import path from 'path';
 import { PRICES_PAGE_LOCATION } from '../lib/consts/content';
 import { parseYaml } from '../lib/content/utils/yaml';
 import { getHtmlFromMd } from '../lib/content/utils/markdown';
+import { getConfig } from '../lib/content/getConfig';
+import { SiteConfig } from '../lib/content/types/SiteConfig';
 
-export const Price: NextPage<{ content: PricesPageContent }> = (props) => {
+export const Price: NextPage<{ content: PricesPageContent } & { config: SiteConfig }> = (props) => {
     const [visible, setVisible] = useState(false);
     const [activeGroupName, setActiveGroupName] = useState('');
 
@@ -25,7 +27,7 @@ export const Price: NextPage<{ content: PricesPageContent }> = (props) => {
     }
 
     return (
-        <BasePageTemplate>
+        <BasePageTemplate config={props.config}>
             <div className="w-full flex justify-center items-center">
                 <div
                     className="lg:w-container text-teal-900 p-7 overflow-hidden items-center justify-center flex flex-col">
@@ -148,7 +150,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-            content
+            content,
+            config: getConfig()
         },
     }
 }

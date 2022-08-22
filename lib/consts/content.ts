@@ -8,3 +8,4 @@ export const INDEX_PAGE_LOCATION = 'content/index.yml'
 export const ABOUT_PAGE_LOCATION = 'content/about.yml'
 export const PRICES_PAGE_LOCATION = 'content/prices.yml'
 
+export const SITE_CONFIG_LOCATION = 'content/site-config.yml'

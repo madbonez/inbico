@@ -1,6 +1,5 @@
 import { IoIosArrowForward } from 'react-icons/io';
 import { useContext, useEffect, useRef } from 'react';
-import { UiContext } from '../lib/context/UiContext';
 import { RefsContext } from '../lib/context/RefsContext';
 
 export const Hero = () => {

@@ -1,7 +1,13 @@
 import { BsChevronRight, BsMap } from 'react-icons/bs';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { SiteConfigContext } from '../lib/context/SiteConfigContext';
+import Link from 'next/link';
+import { PageUrl } from '../lib/consts/pages';
 
 export const Footer = () => {
+    const [config] = useContext(SiteConfigContext);
+
     return (
         <footer className="w-full relative h-[1250px] lg:h-[1000px] flex">
             {/*background*/}
@@ -55,11 +61,21 @@ export const Footer = () => {
                         <div className="text-white w-[22rem] mt-10">
                             <h3 className="font-normal mb-7">БЫСТРЫЕ ССЫЛКИ</h3>
                             <div className="grid grid-cols-2 gap-x-5 text-gray-400 text-sm">
-                                <a className="cursor-pointer hover:text-white">Главная</a>
-                                <a className="cursor-pointer hover:text-white">Услуги</a>
-                                <a className="cursor-pointer hover:text-white">О компании</a>
-                                <a className="cursor-pointer hover:text-white">Цены</a>
-                                <a className="cursor-pointer hover:text-white">Информация</a>
+                                <span className="cursor-pointer hover:text-white">
+                                    <Link href={PageUrl.INDEX}>Главная</Link>
+                                </span>
+                                <span className="cursor-pointer hover:text-white">
+                                    <Link href={PageUrl.SERVICES}>Услуги</Link>
+                                </span>
+                                <span className="cursor-pointer hover:text-white">
+                                    <Link href={PageUrl.ABOUT}>О компании</Link>
+                                </span>
+                                <span className="cursor-pointer hover:text-white">
+                                    <Link href={PageUrl.PRICE}>Цены</Link>
+                                </span>
+                                <span className="cursor-pointer hover:text-white">
+                                    <Link href={PageUrl.REFERENCE}>Информация</Link>
+                                </span>
                                 <a className="cursor-pointer hover:text-white">Русское Общество Оценщиков</a>
                                 <a className="cursor-pointer hover:text-white">Федеральный закон об оценочной деятельности</a>
                                 <a className="cursor-pointer hover:text-white">Экспертное оценивание</a>
@@ -69,22 +85,23 @@ export const Footer = () => {
                             <h3 className="font-normal mb-7 mt-6 lg:mt-0">АДРЕСС</h3>
                             <div className="flex flex-wrap items-start text-gray-400 text-sm justify-between">
                                 <span className="w-44">
-                                    <span className="inline">Адрес: 115409, Москва, Каширское ш., дом 66, корп. 2, оф.33</span>
-                                    <a className="inline hover:text-orange-600 cursor-pointer text-white mt-3"><BsMap/></a>
+                                    <span className="inline">{config.address}</span>
+                                    <a className="inline hover:text-orange-600 cursor-pointer text-white mt-3">
+                                        <Link href={'/about'}><BsMap/></Link>
+                                    </a>
                                 </span>
                                 <span className="flex flex-col w-52">
+                                    {
+                                        config.phones.map(phone => (
+                                            <div key={phone}>
+                                                <span className="text-white text-sm">Тел: </span><span>{phone}</span>
+                                            </div>
+                                        ))
+                                    }
                                     <div>
-                                        <span className="text-white text-sm">Тел: </span><span>+7(963) 689-55-99</span>
-                                    </div>
-                                    <div>
-                                        <span className="text-white text-sm">Тел: </span><span>+7(495) 796-25-50</span>
-                                    </div>
-                                    <div>
-                                        <span className="text-white text-sm">Тел: </span><span>+7(917) 593-00-24</span>
-                                    </div>
-
-                                    <div>
-                                        <span className="text-white text-sm">Email: </span><span>valvalval@inbico.ru</span>
+                                        <span className="text-white text-sm">Email: </span><span>
+                                        {config.email}
+                                    </span>
                                     </div>
                                 </span>
                             </div>
