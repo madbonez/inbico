@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { SiteConfigContext } from '../lib/context/SiteConfigContext';
 import Link from 'next/link';
 import { PageUrl } from '../lib/consts/pages';
+import { MapIcon } from './atoms/MapIcon';
 
 export const Footer = () => {
     const [config] = useContext(SiteConfigContext);
@@ -26,22 +27,29 @@ export const Footer = () => {
             <div className="lg:w-container absolute inset-0 m-auto text-white p-7">
                 {/*block1*/}
                 <div className="relative h-[300px]">
-                    <div className="absolute top-1/4 flex w-full p-4 flex-wrap justify-center items-center justify-between">
+                    <div
+                        className="absolute top-1/4 flex w-full p-4 flex-wrap justify-center items-center justify-between">
                         <div>
                             <h1 className="text-3xl font-bold">ОЦЕНОЧНАЯ КОМПАНИЯ</h1>
                             <h2 className="text-md">Мы оказываем весь спектр оценочных и консалтинговых услуг</h2>
                         </div>
 
-                        <div className="hidden lg:flex bg-orange-600 rounded p-5 inline-block w-fit items-center font-bold h-12 mt-7 cursor-pointer hover:bg-black transition-colors duration-300">
+                        <div
+                            className="hidden lg:flex bg-orange-600 rounded p-5 inline-block w-fit items-center font-bold h-12 mt-7 cursor-pointer hover:bg-black transition-colors duration-300">
                             Заказать оценку сейчас <BsChevronRight/>
                         </div>
                     </div>
                 </div>
 
                 {/*block2*/}
-                <div className="h-[300px] bg-[url('/footer-accent.png')] bg-cover bg-center flex flex-wrap justify-center items-center content-center">
-                    <input type="text" placeholder="Телефон или емейл" className="text-gray-600 w-64 lg:w-96 p-2.5 outline-0 mt-3"/>
-                    <button className="bg-orange-600 p-2.5 text-white cursor-pointer hover:bg-black transition-colors duration-500 font-bold active:shadow-xl mt-3">Связать со мной</button>
+                <div
+                    className="h-[300px] bg-[url('/footer-accent.png')] bg-cover bg-center flex flex-wrap justify-center items-center content-center">
+                    <input type="text" placeholder="Телефон или емейл"
+                           className="text-gray-600 w-64 lg:w-96 p-2.5 outline-0 mt-3"/>
+                    <button
+                        className="bg-orange-600 p-2.5 text-white cursor-pointer hover:bg-black transition-colors duration-500 font-bold active:shadow-xl mt-3">Связать
+                        со мной
+                    </button>
                 </div>
 
                 {/*block3*/}
@@ -77,7 +85,8 @@ export const Footer = () => {
                                     <Link href={PageUrl.REFERENCE}>Информация</Link>
                                 </span>
                                 <a className="cursor-pointer hover:text-white">Русское Общество Оценщиков</a>
-                                <a className="cursor-pointer hover:text-white">Федеральный закон об оценочной деятельности</a>
+                                <a className="cursor-pointer hover:text-white">Федеральный закон об оценочной
+                                    деятельности</a>
                                 <a className="cursor-pointer hover:text-white">Экспертное оценивание</a>
                             </div>
                         </div>
@@ -86,9 +95,9 @@ export const Footer = () => {
                             <div className="flex flex-wrap items-start text-gray-400 text-sm justify-between">
                                 <span className="w-44">
                                     <span className="inline">{config.address}</span>
-                                    <a className="inline hover:text-orange-600 cursor-pointer text-white mt-3">
-                                        <Link href={'/about'}><BsMap/></Link>
-                                    </a>
+                                    <Link href={PageUrl.ABOUT} passHref>
+                                        <MapIcon/>
+                                    </Link>
                                 </span>
                                 <span className="flex flex-col w-52">
                                     {

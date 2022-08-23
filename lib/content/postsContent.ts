@@ -26,9 +26,11 @@ const allPosts: Post[] = readdirSync(postsPath)
     .filter((post: Partial<Post>) => Object.keys(post).length > 0) as Post[];
 
 const partSlugToSectionMap = new Map<string, string>();
+const referenceParts: Part[] = [];
+const servicesParts: Part[] = []
 const allParts: Part[] = readdirSync(partsPath)
     .map((fileName: string) => {
-        let result: Partial<Part> = {};
+        let result: Part | null = null;
         let content: FrontMatterResult<Part>;
         try {
             content = fm(fs.readFileSync(path.resolve(partsPath, fileName), 'utf-8'));
@@ -37,6 +39,12 @@ const allParts: Part[] = readdirSync(partsPath)
 
             if (result.slug && result.sectionCode) {
                 partSlugToSectionMap.set(result.slug, result.sectionCode);
+
+                if (result.sectionCode === SERVICES_SECTION_SLUG) {
+                    servicesParts.push(result);
+                } else {
+                    referenceParts.push(result);
+                }
             }
         } catch (e) {
             console.error(e);
@@ -44,14 +52,17 @@ const allParts: Part[] = readdirSync(partsPath)
 
         return result;
     })
-    .filter((post: Partial<Part>) => Object.keys(post).length > 0) as Part[];
+    .filter((post: Part | null) => Object.keys(post ?? {}).length > 0) as Part[];
 
 const servicesPosts = allPosts.filter((post: Post) => partSlugToSectionMap.get(post.partSlug) === SERVICES_SECTION_SLUG);
 const referencePosts = allPosts.filter((post: Post) => partSlugToSectionMap.get(post.partSlug) === REFERENCE_SECTION_SLUG);
 
+
 const content = {
     servicesPosts,
     referencePosts,
+    servicesParts,
+    referenceParts,
 }
 
 

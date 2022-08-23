@@ -4,5 +4,7 @@ export interface Part {
     slug: string;
     sectionCode: typeof SERVICES_SECTION_SLUG | typeof  REFERENCE_SECTION_SLUG;
     title: string;
+    image: string;
     body: string;
+    preview: string;
 }

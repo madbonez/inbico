@@ -59,6 +59,7 @@ export const ArticlesPreview = (props: { header: string, bgGray?: boolean, conte
                                 publishDay={post.publishDate}
                                 publishMonth={post.publishMonth}
                                 text={post.preview}
+                                slug={post.slug}
                             />
                         ))
                     }

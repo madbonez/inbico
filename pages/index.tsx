@@ -48,7 +48,7 @@ export async function getStaticProps() {
         props: {
             postsContent: postsContent,
             content: pageContent,
-            config: getConfig()
+            config: getConfig(),
         },
     }
 }

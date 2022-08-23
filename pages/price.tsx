@@ -114,7 +114,7 @@ export const Price: NextPage<{ content: PricesPageContent } & { config: SiteConf
                                 <Fragment key={group.groupName}>
                                     <tr>
                                         <td colSpan={5}
-                                            className="border border-slate-500 border-nepal p-2 font-bold bg-grayBg">
+                                            className="border border-slate-500 border-nepal p-2 font-bold bg-orange-100">
                                             {group.groupName}
                                         </td>
                                     </tr>
