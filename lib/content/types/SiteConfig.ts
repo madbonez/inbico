@@ -11,4 +11,8 @@ export interface SiteConfig {
     aboutPageUrl: string;
     servicesPageUrl: string;
     referencePageUrl: string;
+    fastLinks: {
+        title: string,
+        url: string,
+    }[];
 }

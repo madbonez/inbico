@@ -11,11 +11,11 @@ import { INDEX_PAGE_LOCATION } from '../lib/consts/content';
 import { parseYaml } from '../lib/content/utils/yaml';
 import { IndexPageContent } from '../lib/content/types/IndexPageContent';
 import postsContent from '../lib/content/postsContent';
-import { Post } from '../lib/content/types/Post';
+import { SitePostContent } from '../lib/content/types/SitePostContent';
 import { getConfig } from '../lib/content/getConfig';
 import { SiteConfig } from '../lib/content/types/SiteConfig';
 
-const Home: NextPage<{ content: IndexPageContent } & { postsContent: { servicesPosts: Post[], referencePosts: Post[] } } & { config: SiteConfig }> = (props) => {
+const Home: NextPage<{ content: IndexPageContent } & { postsContent: { servicesPosts: SitePostContent[], referencePosts: SitePostContent[] } } & { config: SiteConfig }> = (props) => {
     return (
         <>
             <Head>

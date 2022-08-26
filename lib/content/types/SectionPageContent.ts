@@ -1,6 +1,6 @@
 import { Seo } from './Seo';
-import { Post } from './Post';
-import { Part } from './Part';
+import { SitePostContent } from './SitePostContent';
+import { SitePartContent } from './SitePartContent';
 
 export enum SectionType {
     SERVICES = 'SERVICES',
@@ -10,7 +10,7 @@ export enum SectionType {
 export interface SectionPageContent {
     seo: Seo;
     block1: string;
-    posts: Post[];
-    parts: Part[];
+    posts: SitePostContent[];
+    parts: SitePartContent[];
     type: SectionType;
 }

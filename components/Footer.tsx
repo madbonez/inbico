@@ -54,7 +54,7 @@ export const Footer = () => {
 
                 {/*block3*/}
                 <div className="pt-6 lg:pt-10">
-                    <div className="flex flex-wrap space-x-10 justify-start lg:justify-center items-center">
+                    <div className="flex flex-wrap space-x-10 justify-start lg:justify-center items-start">
                         <div className="hidden lg:flex mt-10 items-center">
                             <Image
                                 className="grayscale"
@@ -66,28 +66,14 @@ export const Footer = () => {
 
                             <span className="text-lg ml-5 text-gray-500 font-bold">ИНБИКО</span>
                         </div>
-                        <div className="text-white w-[22rem] mt-10">
+                        <div className="text-white w-[22rem]">
                             <h3 className="font-normal mb-7">БЫСТРЫЕ ССЫЛКИ</h3>
                             <div className="grid grid-cols-2 gap-x-5 text-gray-400 text-sm">
-                                <span className="cursor-pointer hover:text-white">
-                                    <Link href={PageUrl.INDEX}>Главная</Link>
-                                </span>
-                                <span className="cursor-pointer hover:text-white">
-                                    <Link href={PageUrl.SERVICES}>Услуги</Link>
-                                </span>
-                                <span className="cursor-pointer hover:text-white">
-                                    <Link href={PageUrl.ABOUT}>О компании</Link>
-                                </span>
-                                <span className="cursor-pointer hover:text-white">
-                                    <Link href={PageUrl.PRICE}>Цены</Link>
-                                </span>
-                                <span className="cursor-pointer hover:text-white">
-                                    <Link href={PageUrl.REFERENCE}>Информация</Link>
-                                </span>
-                                <a className="cursor-pointer hover:text-white">Русское Общество Оценщиков</a>
-                                <a className="cursor-pointer hover:text-white">Федеральный закон об оценочной
-                                    деятельности</a>
-                                <a className="cursor-pointer hover:text-white">Экспертное оценивание</a>
+                                {config.fastLinks.map(link => (
+                                    <span key={link.title} className="cursor-pointer hover:text-white">
+                                        <Link href={link.url}>{link.title}</Link>
+                                    </span>
+                                ))}
                             </div>
                         </div>
                         <div className="text-white">

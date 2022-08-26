@@ -1,14 +1,14 @@
 import { TextAccent } from './atoms/TextAccent';
 import { ArticleCard } from './ArticleCard';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import { Post } from '../lib/content/types/Post';
+import { SitePostContent } from '../lib/content/types/SitePostContent';
 import { useRef, useState } from 'react';
 
 const mobileCardWidth = 320;
 const lgCardWidth = 518;
 const lgBreakpoint = 1024;
 
-export const ArticlesPreview = (props: { header: string, bgGray?: boolean, content: Post[] }) => {
+export const ArticlesPreview = (props: { header: string, bgGray?: boolean, content: SitePostContent[] }) => {
     const [currentIndex, updateIndex] = useState(0);
     const cardsContainer = useRef<HTMLDivElement>(null);
 

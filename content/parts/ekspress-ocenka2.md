@@ -1,6 +1,6 @@
 ---
 sectionCode: services
-slug: ocenka-nedvigimost
+slug: ekspress-ocenka2
 image: /articles/img.png
 title: Заголовок раздела services
 preview: |-
@@ -12,6 +12,7 @@ headBlock: |-
     влияющих на его цену, проводится экспертиза технического состояния транспортного средства,
     на основании чего определяется рыночная стоимость Вашего авто.
 ---
+
 # Оценка недвижимости
 
 Виды объектов

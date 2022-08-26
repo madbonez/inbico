@@ -8,3 +8,14 @@ ytUrl: /ytUrl
 telegramChanel: somechanelId
 address: 115409, Москва, Каширское ш., дом 66, корп. 2, оф.33
 userActionEndpoint: /userActionEndpoint
+fastLinks:
+  - title: 'Главная'
+    url: '/'
+  - title: 'О компании'
+    url: '/about'
+  - title: 'Услуги'
+    url: '/services'
+  - title: 'Цены'
+    url: '/prices'
+  - title: 'Информация'
+    url: '/reference'

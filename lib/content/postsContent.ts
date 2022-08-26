@@ -1,18 +1,18 @@
 import path from 'path';
 import { PARTS_LOCATION, POSTS_LOCATION, REFERENCE_SECTION_SLUG, SERVICES_SECTION_SLUG } from '../consts/content';
-import { Post } from './types/Post';
+import { SitePostContent } from './types/SitePostContent';
 import fs, { readdirSync } from 'fs';
 import fm, { FrontMatterResult } from 'front-matter';
-import { Part } from './types/Part';
+import { SitePartContent } from './types/SitePartContent';
 import { getHtmlFromMd } from './utils/markdown';
 
 const postsPath = path.resolve(process.cwd(), POSTS_LOCATION);
 const partsPath = path.resolve(process.cwd(), PARTS_LOCATION);
 
-const allPosts: Post[] = readdirSync(postsPath)
+const allPosts: SitePostContent[] = readdirSync(postsPath)
     .map((fileName: string) => {
-        let result: Partial<Post> = {};
-        let content: FrontMatterResult<Post>;
+        let result: Partial<SitePostContent> = {};
+        let content: FrontMatterResult<SitePostContent>;
         try {
             content = fm(fs.readFileSync(path.resolve(postsPath, fileName), 'utf-8'));
             result = {...content.attributes}
@@ -23,15 +23,15 @@ const allPosts: Post[] = readdirSync(postsPath)
 
         return result;
     })
-    .filter((post: Partial<Post>) => Object.keys(post).length > 0) as Post[];
+    .filter((post: Partial<SitePostContent>) => Object.keys(post).length > 0) as SitePostContent[];
 
 const partSlugToSectionMap = new Map<string, string>();
-const referenceParts: Part[] = [];
-const servicesParts: Part[] = []
-const allParts: Part[] = readdirSync(partsPath)
+const referenceParts: SitePartContent[] = [];
+const servicesParts: SitePartContent[] = []
+const allParts: SitePartContent[] = readdirSync(partsPath)
     .map((fileName: string) => {
-        let result: Part | null = null;
-        let content: FrontMatterResult<Part>;
+        let result: SitePartContent | null = null;
+        let content: FrontMatterResult<SitePartContent>;
         try {
             content = fm(fs.readFileSync(path.resolve(partsPath, fileName), 'utf-8'));
             result = {...content.attributes}
@@ -52,10 +52,10 @@ const allParts: Part[] = readdirSync(partsPath)
 
         return result;
     })
-    .filter((post: Part | null) => Object.keys(post ?? {}).length > 0) as Part[];
+    .filter((post: SitePartContent | null) => Object.keys(post ?? {}).length > 0) as SitePartContent[];
 
-const servicesPosts = allPosts.filter((post: Post) => partSlugToSectionMap.get(post.partSlug) === SERVICES_SECTION_SLUG);
-const referencePosts = allPosts.filter((post: Post) => partSlugToSectionMap.get(post.partSlug) === REFERENCE_SECTION_SLUG);
+const servicesPosts = allPosts.filter((post: SitePostContent) => partSlugToSectionMap.get(post.partSlug) === SERVICES_SECTION_SLUG);
+const referencePosts = allPosts.filter((post: SitePostContent) => partSlugToSectionMap.get(post.partSlug) === REFERENCE_SECTION_SLUG);
 
 
 const content = {
@@ -65,5 +65,12 @@ const content = {
     referenceParts,
 }
 
+export function getPostsThatBelongPart(partSlug: string): SitePostContent[] {
+    return [...servicesPosts, ...referencePosts].filter(post => post.partSlug === partSlug);
+}
+
+export function getPartContent(partSlug: string): SitePartContent | undefined {
+    return [...servicesParts, ...referenceParts].find(part => part.slug === partSlug);
+}
 
 export default content;
