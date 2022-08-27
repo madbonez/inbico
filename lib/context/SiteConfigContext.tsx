@@ -5,15 +5,10 @@ const initState: SiteConfig = {
     address: '',
     phones: [],
     email: '',
-    telegramChanel: '',
     userActionEndpoint: '',
     vkUrl: '',
     ytUrl: '',
-    indexPageUrl: '/',
-    pricePageUrl: '/price',
-    aboutPageUrl: '/about',
-    servicesPageUrl: '/services',
-    referencePageUrl: '/reference',
+    fastLinks: [],
 }
 
 export const SiteConfigContext = createContext<[SiteConfig, Dispatch<SiteConfig>]>([initState, null as unknown as Dispatch<any>]);

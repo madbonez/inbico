@@ -5,7 +5,6 @@ phones:
 email: val@inbico.com
 vkUrl: /vkUrl
 ytUrl: /ytUrl
-telegramChanel: somechanelId
 address: 115409, Москва, Каширское ш., дом 66, корп. 2, оф.33
 userActionEndpoint: /userActionEndpoint
 fastLinks:

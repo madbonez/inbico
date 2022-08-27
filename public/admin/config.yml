@@ -5,27 +5,98 @@ media_folder: public/images
 public_folder: images
 
 collections:
+  - name: "config"
+    label: "Настройки"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "site-config"
+        label: "Site Config"
+        file: "content/site-config.yml"
+        description: "Общие настройки сайта"
+        fields:
+          - label: "Телефоны"
+            name: "phones"
+            widget: "list"
+          - label: "Email"
+            name: "email"
+            widget: "string"
+          - label: "Адрес для формы обратной связи"
+            name: "userActionEndpoint"
+            widget: "string"
+          - label: "Адрес vk паблика"
+            name: "vkUrl"
+            widget: "string"
+          - label: "Адрес канала/видео в ютубе"
+            name: "ytUrl"
+            widget: "string"
+          - label: "Адрес компании в футере"
+            name: "address"
+            widget: "string"
+          - label: "Быстрые ссылки"
+            name: "fastLinks"
+            widget: "list"
+            fields:
+              - label: "Название"
+                name: "title"
+                widget: "string"
+              - label: "Ссылка"
+                name: "url"
+                widget: "string"
   - name: "pages"
     label: "Основные страницы сайта"
     files:
-      - label: "Prices"
+      - label: "Цены"
         name: "Цены"
-        file: "content/prices.md"
+        file: "content/prices.yml"
         fields:
           - { label: "Текстовый блок", name: "block1", widget: "markdown" }
-          - label: Прайслист
-            name: priceList
-            widget: list
+          - label: "Прайслист"
+            name: "priceList"
+            widget: "list"
             fields:
-              - label: Название группы
-                name: groupName
-                widget: string
-              - label: Объекты
-                name: items,
-                widget: list
+              - label: "Название группы"
+                name: "groupName"
+                widget: "string"
+              - label: "Объекты"
+                name: "items"
+                widget: "list"
                 fields:
-                  - { label: "Объект оценки", name: object, widget: string }
-                  - { label: "Примечание", name: description, widget: string }
-                  - { label: "Сроки исполнения, дней", name: duration, widget: string }
-                  - { label: "Стоимость услуг (заключение), руб.", name: price1, widget: string }
-                  - { label: "Стоимость услуг (отчет), руб.", name: price2, widget: string }
+                  - { label: "Объект оценки", name: "object", widget: "string" }
+                  - { label: "Примечание", name: "description", widget: "string" }
+                  - { label: "Сроки исполнения, дней", name: "duration", widget: "string" }
+                  - { label: "Стоимость услуг (заключение), руб.", name: "price1", widget: "string" }
+                  - { label: "Стоимость услуг (отчет), руб.", name: "price2", widget: "string" }
+      - label: "Главная"
+        name: "Главная"
+        file: "content/index.yml"
+        fields:
+          - label: "test"
+            name: "test"
+            widget: "string"
+      - label: "О компании"
+        name: "О компании"
+        file: "content/about.yml"
+        fields:
+          - label: "test"
+            name: "test"
+            widget: "string"
+      - label: "Информация"
+        name: "Информация"
+        file: "content/reference.yml"
+        fields:
+          - label: "test"
+            name: "test"
+            widget: "string"
+      - label: "Услуги"
+        name: "Услуги"
+        file: "content/services.yml"
+        fields:
+          - label: "test"
+            name: "test"
+            widget: "string"
+#  - name: "parts"
+#    label: "Разделы"
+#  - name: "posts"
+#    label: "Статьи"
