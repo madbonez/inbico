@@ -8,6 +8,5 @@ export interface AbstractPriceRow {
 
 export interface PricesPageContent {
     block1: string;
-    priceListHead: AbstractPriceRow[];
     priceList: { groupName: string, items: AbstractPriceRow[] } [];
 }
